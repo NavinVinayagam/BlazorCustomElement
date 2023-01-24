@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<div class="custom-elements">
+    Selected Game: <b>@SelectedGame</b>
+
+    <label>Blazor built-in component</label>
+
+    <InputSelect @bind-Value="SelectedGame" style="width: 50%;">
+        @foreach (var game in Games)
+        {
+            <option value="@game">@game</option>
+        }
+    </InputSelect>    
+
+</div>
+
+@code {
+    [Parameter]
+    public string SelectedGame { get; set; } = "Badminton";
+
+    public List<string> Games = new List<string>() { "Badminton", "Basketball", "Cricket", "Football", "Hockey" };
+}
+
+<style>
+
+    label {
+        display: block;
+        font-weight: bold;
+        padding: 15px 0px;
+    }
+
+    .custom-elements {
+        width: 500px;
+    }
+</style>
